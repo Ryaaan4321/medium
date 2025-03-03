@@ -1,30 +1,28 @@
-import { BlogSkelton } from "../components/BlogSkelton";
+import { AppBar } from "../components/AppBar";
 import { FullBlog } from "../components/FullBlog";
-import { useBlog } from "../hooks"
-import { useParams } from "react-router-dom";
-interface Blog {
-  content: string;
-  title: string;
-  id: number;
-  author?: { name?: string }; 
-  published: boolean;
-}
+import { useBlog } from "../hooks";
+import {useParams} from "react-router-dom";
 
-// drafts js to make rich editor
-export default function Blog() {
-  const { id } = useParams();
-  const { loading, blog } = useBlog({ id: id || "" });
-  console.log("blog from the Blog Page = ", blog)
-  if (loading) return (
-    <div>
-      <BlogSkelton />
-      <BlogSkelton />
+// atomFamilies/selectorFamilies
+export const Blog = () => {
+    const { id } = useParams();
+    const {loading, blog} = useBlog({
+        id: id || ""
+    });
+
+    if (loading || !blog) {
+        return <div>
+            <AppBar />
+        
+            <div className="h-screen flex flex-col justify-center">
+                
+                <div className="flex justify-center">
+    
+                </div>
+            </div>
+        </div>
+    }
+    return <div>
+        <FullBlog blog={blog} />
     </div>
-  );
-  return (
-    <div>
-      <FullBlog blog={Blog}/>
-    </div>
-  );
-};
-// drafts js to make rich editor
+}
