@@ -3,7 +3,7 @@ import { FullBlog } from "../components/FullBlog";
 import { useBlog } from "../hooks";
 import {useParams} from "react-router-dom";
 
-// atomFamilies/selectorFamilies
+
 export const Blog = () => {
     const { id } = useParams();
     const {loading, blog} = useBlog({
@@ -26,3 +26,4 @@ export const Blog = () => {
         <FullBlog blog={blog} />
     </div>
 }
+// atomFamilies/selectorFamilies
