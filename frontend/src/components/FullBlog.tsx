@@ -31,7 +31,7 @@ export const FullBlog = ({ blog }: { blog: Blog }) => {
                             </div>
                             <div>
                                 <div className="font-bold text-xl">{blog.author.name || "Anonymous"}</div>
-                                <div className=" text-slate-500">Random ability to catc the user attention</div>
+                                <div className=" text-slate-500">Random ability to catch the user attention</div>
                             </div>
                         </div>
                     </div>

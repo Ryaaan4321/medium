@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BACKEND_URL } from '../config';
 export const useBlog = ({ id }: { id: string }) => {
 	const [loading, setLoading] = useState(true);
-	const [blog, setBlog] = useState();
+	const [blog, setBlog] = useState([]);
     useEffect(() => {
         axios.get(`${BACKEND_URL}/blog/${id}`, {
             headers: {
@@ -27,7 +27,7 @@ export const useBlog = ({ id }: { id: string }) => {
 // drafts js to make rich editor
 export const useBlogs = () => {
     const [loading, setLoading] = useState(true);
-    const [blogs, setBlogs] = useState({});
+    const [blogs, setBlogs] = useState([]);
     useEffect(() => {
         axios.get(`${BACKEND_URL}/blog/bulk`, {
             headers: {
